@@ -1,0 +1,13 @@
+div{
+    display:block;
+}
+.container {
+  min-height: calc(100vh - 3rem);
+  display: grid;
+  place-items: center;
+  text-align: center;
+  align-content: center;
+}
+.btn-container{
+  display: inline-block;
+}
