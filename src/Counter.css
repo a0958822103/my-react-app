@@ -11,3 +11,12 @@ div{
 .btn-container{
   display: inline-block;
 }
+.text-green{
+  color: green;
+}
+.text-red{
+  color: red;
+}
+.text-black{
+  color: black;
+}
