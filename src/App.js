@@ -1,49 +1,56 @@
-import React, { useState } from "react"
-import './image.css';
-import img1 from "./image1.jpg"
-import img2 from "./image2.jpg"
-import img3 from "./image3.jpg"
-import arrowleft from "./arrowleft.jpg"
-import arrowright from "./arrowright.jpg"
-const data = [
-    {
-        key: 1,
-        src: img1
-    },
-
-    {
-        key: 2,
-        src: img2
-    },
-
-    {
-        key: 3,
-        src: img3
-    },
-]
+import React, { useState } from 'react'
+import './image.css'
+import BtnSlider from './btnSlider'
+import dataSlider from './dataSlider'
 
 export default function Slider() {
-    const [currentid, setCurrentid] = useState(0)
+    
+    const [slideIndex, setSlideIndex] = useState(1)
 
-    const next = () => {
-        setCurrentid((currentid) => data.length - 1 > currentid ? currentid + 1 : currentid = 0)
+    const nextSlide = () =>{
+        if(slideIndex !== dataSlider.length){
+            setSlideIndex(slideIndex + 1);
+        }
+        else if(slideIndex === dataSlider.length){
+            setSlideIndex(1);
+        }
     }
 
-    const prev = () => {
-        setCurrentid((currentid) => currentid > 0 ? currentid - 1 : data.length - 1)
+    const prevSlide = () =>{
+        if(slideIndex !== 1){
+            setSlideIndex(slideIndex - 1)
+        }
+        else if(slideIndex === 1){
+            setSlideIndex(dataSlider.length)
+        }
+    }
+
+    const moveDot = index =>{
+        setSlideIndex(index)
     }
 
     return (
-        <div className="slider">
+        <div className="container-slider">
+            {dataSlider.map((obj, index) => {
+                return (
+                    <div key={obj.id}
+                    className={slideIndex === index + 1 ? "slide active-anim" : "slide"}>
+                        <img src={process.env.PUBLIC_URL + `/Imgs/img${index + 1}.jpg`} />
+                    </div>
+                )
+            })}
+            <BtnSlider moveSlide={nextSlide} direction={"next"}/>
+            <BtnSlider moveSlide={prevSlide} direction={"prev"}/>
 
-            <img className="Slider-img" src={data[currentid].src} alt="" />
-            <button className="btn-prev" onClick={prev}>
-                <img src={arrowleft} alt="" width="25px" height="25px"></img>
-            </button>
+            <div className='container-dots'>
+                {Array.from({length:5}).map((item, index) =>(
+                    <div
+                    onClick={() => moveDot(index + 1)}
+                    className={slideIndex === index + 1 ? "dot active" : "dot"}>
 
-            <button className="btn-next" onClick={next}>
-                <img src={arrowright} alt="" width="25px" height="25px" ></img>
-            </button>
+                    </div>
+                ))}
+            </div>
 
         </div>
     )
