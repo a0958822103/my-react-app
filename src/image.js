@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import './image.css';
 import img1 from "./image1.jpg"
 import img2 from "./image2.jpg"
+
 import img3 from "./image3.jpg"
 import arrowleft from "./arrowleft.jpg"
 import arrowright from "./arrowright.jpg"
