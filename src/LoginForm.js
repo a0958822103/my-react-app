@@ -7,10 +7,13 @@ function LoginForm({Login,error}) {
         e.preventDefault();
         Login(details);
     }
+    const [num,setNum]=useState(123);
     return (
         <form onSubmit={submitHandler}>
-            <div className="form-inner">
-                <h2>Login</h2>
+            <div className="form-inner">  
+                <button onClick={()=>{setNum(num+1)}}>click me</button>
+                <h2 >Login {num}</h2>
+
                 {(error !="") ?(<div className="error">{error}</div>) :""}
                 <div className="form-group">
                     <label htmlFor="name">Name:</label>
