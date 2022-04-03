@@ -1,47 +1,31 @@
-import React, { useState,useEffect} from 'react'
-import Form from "./todo/form"
-import TodoList from './todo/TodoList'
-import "./todo/todo.css"
+import React from "react";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
+import TodoApp from "./todo/TodoApp";
 
 export default function App() {
-
-    const [inputText, setInputText] = useState("");
-    const [todos, setTodos] = useState([]);
-    const [status, setStatus] = useState("all");
-    const [filteredTodos, setFilteredTodos] = useState([]);
-
-    useEffect(()=>{
-    filterHandler();
-    },[todos,status]); 
-      
-    const filterHandler=() =>{   
-        switch(status){
-            case "completed":
-                setFilteredTodos(todos.filter((todo) =>todo.completed === true))
-                break;
-            case "uncompleted": 
-                setFilteredTodos(todos.filter((todo) =>todo.completed === false))
-                break;
-            default: 
-                setFilteredTodos(todos);
-                break;
- 
-        }
-    };
-     return (
-        <div className="App">
-            <header>
-                <h1> my Todo List</h1>
-            </header>
-            <Form 
-                inputText={inputText}
-                todos={todos}
-                setTodos={setTodos}
-                setInputText={setInputText}
-                setStatus={setStatus}/>
-            <TodoList 
-                todos={todos}
-                setTodos={setTodos}
-                filteredTodos={filteredTodos} />
-        </div>)
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/todo" element={<TodoApp />}></Route>
+      </Routes>
+    </BrowserRouter>
+  );
 }
+
+/* import React from "react";
+import image from "./image/image0.png";
+import "./image.css";
+import counter from "./counter"
+
+export default function Upload() {
+  return (
+  <div className="Y7cLH QzYnR io12_">
+      <button type="button" className="MfMmR jpBZ0 uOGmM sxhLh">
+        <div className="cbstg">
+          <img className="image" src={image} />
+          <div className="B63C_ Jl9NH"></div>
+        </div>
+      </button>
+    </div>
+  );
+} */

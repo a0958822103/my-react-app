@@ -1,0 +1,23 @@
+.B63C_ {
+    margin-bottom: 16px;
+    width: 130px;
+}
+
+.Jl9NH {
+    position: relative;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+div {
+    display: block;
+}
+
+.cbstg {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
