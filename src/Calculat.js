@@ -1,3 +1,4 @@
+/*
 import React, { useState } from "react";
 import "./Calculator/Calculator.css";
 import  button  from "./Calculator/button";
@@ -13,9 +14,12 @@ import  Clearbutton  from "./Calculator/Clearbutton";
       const Input = val => {
           setaddToInput(addToInput + val)
   }
-      const handleEqual = () =>{
-        setequal(equal.evaluate)
+ 
+      const handleEqual = ()=>{
+      setequal(equal)
       }
+
+ 
 
   
     return (
@@ -42,16 +46,22 @@ import  Clearbutton  from "./Calculator/Clearbutton";
           <div className="row">
             <button onClick={()=>Input('.')}>.</button>
             <button onClick={()=>Input('0')}>0</button>
-            <button onClick={()=>{handleEqual}}>=</button>
+            <button handleClick={() => this.handleEqual()}>=</button>
             <button onClick={()=>Input('-')}>-</button>
           </div>
           <div className="row">
-            <Clearbutton val={val}/>
+            <Clearbutton handleClear={() => ""}>
               Clear
+            </Clearbutton>
           </div>
         </div>
       </div>
     );
  
  }
- export default App;
+
+
+
+
+ 
+ */
