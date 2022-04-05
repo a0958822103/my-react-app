@@ -66,7 +66,8 @@ function App() {
             onClick={() => {
               setaddToInput("");
             }}
-          > Clear</div>  
+          > Clear test</div>  
+         
         </div>
       </div>
     </div>
