@@ -1,0 +1,17 @@
+*{
+    margin: 0;
+    padding: 0;
+  
+}
+
+.Link{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image{ 
+    display: inline-block;
+    max-width: 400px;
+    margin: 20px;
+}

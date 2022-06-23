@@ -10,6 +10,8 @@ div{
 }
 .btn-container{
   display: inline-block;
+
+  margin: 15px;
 }
 .text-green{
   color: green;
@@ -19,4 +21,9 @@ div{
 }
 .text-black{
   color: black;
+} 
+
+.decrease , .reset , .increase{
+  margin: 1ch;
+
 }
